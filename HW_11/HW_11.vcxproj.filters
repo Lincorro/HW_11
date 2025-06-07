@@ -16,6 +16,9 @@
     <Filter Include="Исходные файлы\Caesar">
       <UniqueIdentifier>{637e3b0c-f57a-4579-aac2-e87ba77c1223}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\emailChek">
+      <UniqueIdentifier>{ecd871db-995c-4f17-98bb-6ab7833504bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HW_11.cpp">
@@ -24,9 +27,15 @@
     <ClCompile Include="caesar.cpp">
       <Filter>Исходные файлы\Caesar</Filter>
     </ClCompile>
+    <ClCompile Include="email.cpp">
+      <Filter>Исходные файлы\emailChek</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="caesar.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="email.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
