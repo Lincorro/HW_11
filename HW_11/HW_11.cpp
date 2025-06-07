@@ -2,14 +2,12 @@
 //
 
 #include <iostream>
-#include "caesar.h"
-#include "email.h"
+#include "start.h"
 
 int main()
 {
+	start();
 
-   //caesar();
-	emailCheck();
 
 }
 

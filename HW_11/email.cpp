@@ -95,11 +95,13 @@ void emailCheck( ) {
             if (rihtSideCheck(i, email)  && leftSideCheck(i, email) )
             {
                 std::cout << "YES \n";
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 break;
             }
             else
             {
                 std::cout << "NO \n";
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 break;
             }
 
