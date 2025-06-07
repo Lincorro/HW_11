@@ -39,6 +39,9 @@
     <ClCompile Include="start.cpp">
       <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
+    <ClCompile Include="ipCheck.cpp">
+      <Filter>Исходные файлы\ipCheck</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="caesar.h">

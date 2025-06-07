@@ -2,6 +2,7 @@
 #include <limits>
 #include "caesar.h"
 #include "email.h"
+#include "ipCheck.h"
 
 void start() {
     bool work = true;
@@ -41,8 +42,7 @@ void start() {
 
         case 3:
             std::cout << "\n=== IP Validation ===\n";
-           
-            std::cout << "Function not implemented yet\n";
+            ipCheck();
             break;
 
         case 0:

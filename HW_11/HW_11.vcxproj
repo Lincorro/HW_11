@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="caesar.cpp" />
     <ClCompile Include="email.cpp" />
+    <ClCompile Include="ipCheck.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="start.cpp" />
   </ItemGroup>
