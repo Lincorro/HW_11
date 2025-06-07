@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="caesar.cpp" />
     <ClCompile Include="email.cpp" />
-    <ClCompile Include="HW_11.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="start.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +137,9 @@
     <ClInclude Include="email.h" />
     <ClInclude Include="ipCheck.h" />
     <ClInclude Include="start.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,7 +17,7 @@ void start() {
             << "0 - Exit\n"
             << "Your choice: ";
 
-        // Проверка ввода
+       
         if (!(std::cin >> choose)) {
             std::cout << "Error: Please enter a NUMBER (0-3)\n";
             std::cin.clear();
@@ -41,7 +41,7 @@ void start() {
 
         case 3:
             std::cout << "\n=== IP Validation ===\n";
-            // Здесь должна быть функция для IP
+           
             std::cout << "Function not implemented yet\n";
             break;
 
