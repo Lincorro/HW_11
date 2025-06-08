@@ -11,7 +11,7 @@ bool corectSymbol(char symbol) {
 
 bool rihtSideCheck(int position, std::string email) {
     bool havePoint = false;
-    if (position - email.length()<=0 || position - email.length() <= 0)
+    if (position - email.length() <0 || position - email.length() >= 63)
     {
         return false;
     }
@@ -91,28 +91,29 @@ void emailCheck( ) {
     std::string email;
     std::cout << "Input your email \n";
     std::getline(std::cin, email);
+    bool flag = false;
 
     for (size_t i = 0; i < email.length(); i++)
     {
         if (email[i] == '@') 
         {
+            flag = true;
             if (rihtSideCheck(i, email)  && leftSideCheck(i, email) )
             {
                 std::cout << "YES \n";
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                break;
+                exit(0);
             }
             else
             {
                 std::cout << "NO \n";
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                break;
+                exit(0);
             }
 
         }
-        else
-        {
-            std::cout << "NO \n";
-        }
     }
+    if (!flag)
+    {
+        std::cout << "NO \n";
+    }
+    
 }

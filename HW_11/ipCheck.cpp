@@ -41,6 +41,6 @@ void ipCheck() {
     }
     if (pointCount != 0 || ipCorect == false)
     {
-        std::cout << "NO \n";
-    }else std::cout << "YES \n";
+        std::cout << "Invalid \n";
+    }else std::cout << "Valid \n";
 }
