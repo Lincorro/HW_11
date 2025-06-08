@@ -1,8 +1,17 @@
 #include <iostream>
 #include <string>
 
-bool corect(int ip) {
-    return (ip >= 0 && ip <= 255);
+bool corect(std::string ip) {
+    if (ip >= "0" && ip <= "255")
+    {
+        int adress = std::stoi(ip);
+        return (adress >= 0 && adress <= 255);
+
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void ipCheck() {
@@ -20,7 +29,7 @@ void ipCheck() {
             if (ip[i]=='.')
             {
                 --pointCount;
-                ipCorect = corect(std::stoi(ipNumber));
+                ipCorect = corect(ipNumber);
                 ipNumber.clear();
             }
             else
@@ -30,9 +39,8 @@ void ipCheck() {
             }
         }
     }
-    if (pointCount < 0 || ipCorect == false)
+    if (pointCount != 0 || ipCorect == false)
     {
         std::cout << "NO \n";
     }else std::cout << "YES \n";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max());
 }

@@ -1,11 +1,12 @@
 ﻿// HW_11.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include <iostream>
-#include "start.h"
+#include "caesar.h"
+#include "email.h"
+#include "ipCheck.h"
 
 int main()
 {
-	start();
+	//emailCheck();
+	ipCheck();
 }
-

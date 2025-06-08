@@ -11,6 +11,10 @@ bool corectSymbol(char symbol) {
 
 bool rihtSideCheck(int position, std::string email) {
     bool havePoint = false;
+    if (position - email.length()<=0 || position - email.length() <= 0)
+    {
+        return false;
+    }
     if (position - email.length() > 1) {
         for (size_t i = position + 1; i < email.length(); i++)
         {
@@ -105,6 +109,10 @@ void emailCheck( ) {
                 break;
             }
 
+        }
+        else
+        {
+            std::cout << "NO \n";
         }
     }
 }
