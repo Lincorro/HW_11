@@ -9,10 +9,10 @@ int main()
 { 
 	while (true)
 	{
-		emailCheck();
+		ipCheck();
 		std::cout << " \n ";
 	}
 	
-	//ipCheck();
+	//emailCheck();
 	//caesar();
 }
