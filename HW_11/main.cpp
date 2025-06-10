@@ -6,8 +6,13 @@
 #include "ipCheck.h"
 
 int main()
-{
-	//emailCheck();
-	ipCheck();
+{ 
+	while (true)
+	{
+		emailCheck();
+		std::cout << " \n ";
+	}
+	
+	//ipCheck();
 	//caesar();
 }

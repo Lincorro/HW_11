@@ -1,119 +1,95 @@
 #include <iostream>
 #include <string>
 
-bool corectSymbol(char symbol) {
-    if (symbol >= '0' && symbol <= '9' || symbol >= 'a' && symbol <= 'z' || symbol >= 'A' && symbol <= 'Z' || symbol >= '!' && symbol <= '/')
-    {
-        return true;
-    }
-    else return false;
+bool corectSumbol(char  symbol) {// проверяем на запретные символы
+	if (symbol >= 'a' && symbol <= 'z' || symbol >= 'A' && symbol <= 'Z' || symbol >= '!' && symbol <= '/' || symbol >= '0' && symbol <= '9')
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool rihtSideCheck(int position, std::string email) {
-    bool havePoint = false;
-    if (position - email.length() <0 || position - email.length() >= 63)
-    {
-        return false;
-    }
-    if (position - email.length() > 1) {
-        for (size_t i = position + 1; i < email.length(); i++)
-        {
-            if (!corectSymbol(email[i]) || email[i] >= 33 && email[i] < 45 || email[i] == 47)
-            {
-                return false;
-            }
-            else
-            {
-                if (email[i] == '.' && havePoint == true)
-                {
-                    return false;
-                }
-                else if (email[i] == '.')
-                {
-                    havePoint = true;
-                }
-                else
-                {
-                    havePoint = false;
-
-                    if (!corectSymbol(email[i]) || email[i] >= 33 && email[i] < 45 || email[i] == 47)
-                    {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
-
-    
-}
-bool leftSideCheck(int position, std::string email) {
-    bool havePoint = false;
-    if (position < 65 && position > 0) {
-        for (size_t i = 0; i < position; i++)
-        {
-            if (!corectSymbol(email[i]))
-            {
-                return false;
-            }
-            else
-            {
-                if (email[i] == '.' && havePoint == true)
-                {
-                    return false;
-                }
-                else if (email[i] == '.')
-                {
-                    havePoint = true;
-                }
-                else
-                {
-                    havePoint = false;
-                }
-            }
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
+bool corectSumbolRight(char  symbol) {//проверяем на запретные символы с правой стороны
+	if (symbol >= '!' && symbol <= ',' || symbol == '/')
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }
 
-void emailCheck( ) {
-    std::string email;
-    std::cout << "Input your email \n";
-    std::getline(std::cin, email);
-    bool flag = false;
+int emailCheck() {
+	std::string email;
+	std::cout << "Input your email: ";
+	std::cin >> email;
+	bool corect = true;
+	bool dog = false;
+	int positionDog = 0;
+	bool previousSymbolIsPoint = false;
 
-    for (size_t i = 0; i < email.length(); i++)
-    {
-        if (email[i] == '@') 
-        {
-            flag = true;
-            if (rihtSideCheck(i, email)  && leftSideCheck(i, email) )
-            {
-                std::cout << "YES \n";
-                exit(0);
-            }
-            else
-            {
-                std::cout << "NO \n";
-                exit(0);
-            }
+	if (email[0] == '.' || email[(email.length() - 1)] == '.') // проверяем наличие точек в конце и начале
+	{
+		std::cout << "NO";
+		return 1;
+	}
 
-        }
-    }
-    if (!flag)
-    {
-        std::cout << "NO \n";
-    }
-    
+
+	for (size_t i = 0; i < email.length(); i++)
+	{
+		if ( email[i] == '@' && !dog )
+		{
+			positionDog = i ;
+			dog = true;
+
+		}
+		else if (email[i] == '@' && dog)
+		{
+			std::cout << "NO";
+			return 1;
+		}
+		else
+		{
+			if (!corectSumbol(email[i])) {
+				std::cout << "NO";
+				return 1;
+			}
+
+
+		}
+		if (positionDog != 0)
+		{
+			if (!corectSumbolRight(email[i])) {
+				std::cout << "NO";
+				return 1;
+			}
+		}
+
+		if (email[i] == '.' && previousSymbolIsPoint) // проверка на точки идущие подряд
+		{
+			std::cout << "NO";
+			return 1;
+		}
+		else if (email[i] == '.')
+		{
+			previousSymbolIsPoint = true;
+		}
+		else
+		{
+			previousSymbolIsPoint = false;
+		}
+
+	}
+	if (positionDog < 1 || positionDog > 64 || (email.length() - positionDog) < 1 || (email.length() - positionDog) > 63) // проверяем длину правой и левой части
+	{
+		std::cout << "NO";
+		return 1;
+	}
+	
+	std::cout << "Yes";
+	return 0;
 }
